@@ -22,10 +22,10 @@ jobs:
         run: npm install
 
       - name: Build Docker Image
-        run: docker build -t matnos/wypozyczalnia-wideo:latest .
+        run: docker build -t matnos/uni-movie_rental_service:latest .
 
       - name: Log in to DockerHub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push Docker Image to DockerHub
-        run: docker push matnos/wypozyczalnia-wideo:latest
+        run: docker push matnos/uni-movie_rental_service:latest
