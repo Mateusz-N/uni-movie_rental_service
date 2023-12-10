@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html" charset= "utf-8" />
+        <title>Wypożyczalnia</title>
+        <link rel = "stylesheet" href = "/css/style.css">
+        <script src = "/js/script.js"></script>
+    </head>
+    <body>
+        <nav id = "navbar">
+            <ul id = "navbarItems">
+                <li class = "navbarItem">
+                    <h3 id = "navbar_homeBtn"><a href = "/">Wypożyczalnia<br/>filmów</a></h3>
+                </li>
+            </ul>
+        </nav>
+        <main id = "pageContent">
+            <form method = "post" action = "/api/modify_rental" id = "modify_rentalForm" class = "fullSizeForm">
+                <h2 id = "modify_rentalForm_heading" class = "fullSizeForm_heading">Modyfikuj wypożyczenie</h2>
+                <main id = "modify_rentalForm_main" class = "fullSizeForm_main form_main">
+
+                    <section id = "modify_rentalForm_clientID" class = "modify_rentalForm_field fullSizeForm_field form_field">
+                        <label for = "modify_rentalForm_input_clientID">
+                            <span class = "fullSizeForm_requiredSign">*</span>ID klienta
+                        </label>
+                        <input name = "clientID" id = "modify_rentalForm_input_clientID" required />
+                    </section>
+
+                    <section id = "modify_rentalForm_movieID" class = "modify_rentalForm_field fullSizeForm_field form_field">
+                        <label for = "modify_rentalForm_input_movieID">
+                            <span class = "fullSizeForm_requiredSign">*</span>ID filmu
+                        </label>
+                        <input name = "movieID" id = "modify_rentalForm_input_movieID" required />
+                    </section>
+
+                    <section id = "modify_rentalForm_rentDate" class = "modify_rentalForm_field fullSizeForm_field form_field">
+                        <label for = "modify_rentalForm_input_rentDate">
+                            <span class = "fullSizeForm_requiredSign">*</span>Data wypożyczenia
+                        </label>
+                        <input type = "date" name = "rentDate" id = "modify_rentalForm_input_rentDate" required />
+                    </section>
+
+                    <section id = "modify_rentalForm_plannedReturnDate" class = "modify_rentalForm_field fullSizeForm_field form_field">
+                        <label for = "modify_rentalForm_input_plannedReturnDate">
+                            <span class = "fullSizeForm_requiredSign">*</span>Data planowanego zwrotu
+                        </label>
+                        <input type = "date" name = "plannedReturnDate" id = "modify_rentalForm_input_plannedReturnDate" required />
+                    </section>
+
+                    <section id = "modify_rentalForm_actualReturnDate" class = "modify_rentalForm_field fullSizeForm_field form_field">
+                        <label for = "modify_rentalForm_input_actualReturnDate">
+                            <span class = "fullSizeForm_requiredSign">*</span>Data faktycznego zwrotu
+                        </label>
+                        <input type = "date" name = "actualReturnDate" id = "modify_rentalForm_input_actualReturnDate" required />
+                    </section>
+
+                </main>
+                <input type = "submit" value = "Zapisz" id = "modify_rentalForm_submit" class = "fullSizeForm_submit" />
+                <p id = "modify_rentalForm_error" class = "fullSizeForm_error"></p>
+            </form>
+        </main>
+    </body>
+</html>

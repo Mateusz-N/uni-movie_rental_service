@@ -1,0 +1,299 @@
+a {
+    color: #fff;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+fieldset {
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+input, textarea, select {
+    padding: 2px 6px;
+    border: 1px solid black;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+legend {
+    font-weight: bold;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+#navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #123;
+    color: #edc;
+}
+
+#navbar > ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 8px;
+    list-style-type: none;
+}
+
+#navbar > ul > li {
+    padding: 8px;
+}
+
+#navbar > ul > .accountItem_first {
+    margin-left: auto;
+}
+
+#navbar_homeBtn > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#pageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    flex: 1;
+    background-color: #f0f0f0;
+}
+
+#pageContent_main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 70%;
+    padding: 50px;
+}
+
+.form_field {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullSizeForm {
+    width: 300px;
+    padding: 16px;
+    background-color: #e0e0e0;
+    border: 2px solid #0f0f0f;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+.fullSizeForm > *:not(:first-child) {
+    margin-top: 16px;
+}
+
+.fullSizeForm_field:not(.fullSizeForm_main > .fullSizeForm_field:first-child) {
+    margin-top: 8px;
+}
+
+.fullSizeForm_heading, #movieList_heading, #rentalList_heading, #movie_heading {
+    margin: 0;
+    text-align: center;
+    font-family: Cambria, Georgia, 'Times New Roman';
+}
+
+.fullSizeForm_requiredSign {
+    padding-right: 1px;
+    color: red;
+}
+
+.fullSizeForm_submit {
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.fullSizeForm_error {
+    display: none;
+    margin: 0;
+    width: 100%;
+    color: red;
+}
+
+.clientForm_addressPrecise, .clientForm_addressGeneral {
+    display: flex;
+    gap: 8px;
+}
+
+.clientForm_addressPrecise > *, .clientForm_addressGeneral {
+    min-width: 0;
+}
+
+.clientForm_street, .clientForm_city {
+    flex: 1;
+}
+
+.clientForm_houseNo, .clientForm_apartmentNo {
+    width: 25%;
+}
+
+.clientForm_postalCode {
+    width: 35%;
+}
+
+.pageContent_main_heading {
+    width: 100%;
+}
+
+.table_filterForm {
+    width: 100%;
+}
+
+.table_filterForm_main {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+thead {
+    background-color: #234;
+    color: #fed;
+}
+
+thead > tr > th:not(.docList_header_no, .docList_header_actions) {
+    cursor: pointer;
+}
+
+thead > tr:first-child > th:last-child {
+    border-top-right-radius: 16px;
+}
+
+tbody > tr:last-child > td:first-child {
+    border-bottom-left-radius: 16px;
+}
+
+tbody > tr:hover {
+    filter: brightness(85%);
+}
+
+tbody > tr:nth-child(even) {
+    background-color: #def;
+    color: #432;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: #cde;
+    color: #321;
+}
+
+table th, table td {
+    margin: 0;
+    padding: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table a {
+    color: inherit;
+}
+
+.btnLink {
+    padding: 0;
+    background: none;
+    color: #321;
+    border: none;
+    font: inherit;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* #movieList_body > tr.movieRow_unavailable {
+    background-color: #ddd;
+} */
+
+.movie_unavailable, #movieList_body > tr.movie_unavailable > .movieRow_rent {
+    color: #d00;
+}
+
+.table_heading_sortSign {
+    margin-left: 4px;
+    visibility: hidden;
+}
+
+.table_heading_sortSign_active {
+    visibility: visible;
+}
+
+#movie_heading {
+    font-style: italic;
+}
+
+#movie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex: 1;
+}
+
+#movie_poster {
+    width: 300px;
+    border: 2px solid #0f0f0f;
+    border-top-right-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+
+#movie_section_main {
+    flex: 1;
+    font-size: 1.2rem;
+}
+
+#movie_properties {
+    display: grid;
+    grid-template-columns: max-content auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#movie_properties > li {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 2;
+    gap: 8px;
+    padding-top: 8px;
+}
+
+#rentalList_filterForm_main {
+    flex-direction: column;
+}
+
+.docList_filterForm_fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.btn_add_doc {
+    margin-left: auto
+}

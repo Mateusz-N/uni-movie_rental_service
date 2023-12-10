@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html" charset= "utf-8" />
+        <title>Wypożyczalnia</title>
+        <link rel = "stylesheet" href = "/css/style.css">
+        <script src = "/js/script.js"></script>
+    </head>
+    <body>
+        <nav id = "navbar">
+            <ul id = "navbarItems">
+                <li class = "navbarItem">
+                    <h3 id = "navbar_homeBtn"><a href = "/">Wypożyczalnia<br/>filmów</a></h3>
+                </li>
+            </ul>
+        </nav>
+        <main id = "pageContent">
+            <form method = "post" action = "/api/register" id = "registerForm" class = "authForm fullSizeForm">
+                <h2 id = "registerForm_heading" class = "authForm_heading fullSizeForm_heading">Rejestracja</h2>
+                <main id = "registerForm_main" class = "authForm_main fullSizeForm_main form_main">
+
+                    <section id = "registerForm_userName" class = "registerForm_field clientForm_userName authForm_field fullSizeForm_field form_field">
+                        <label for = "registerForm_input_userName">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign fullSizeForm_requiredSign">*</span>Nazwa użytkownika
+                        </label>
+                        <input name = "userName" id = "registerForm_input_userName" autocomplete = "username" required />
+                    </section>
+
+                    <section id = "registerForm_password" class = "registerForm_field clientForm_password authForm_field fullSizeForm_field form_field">
+                        <label for = "registerForm_input_password">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign fullSizeForm_requiredSign">*</span>Hasło
+                        </label>
+                        <input name = "password" type = "password" id = "registerForm_input_password" required />
+                    </section>
+
+                    <section id = "registerForm_firstName" class = "registerForm_field clientForm_firstName authForm_field fullSizeForm_field form_field">
+                        <label for = "registerForm_input_firstName">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Imię
+                        </label>
+                        <input name = "firstName" id = "registerForm_input_firstName" autocomplete = "given-name" required />
+                    </section>
+
+                    <section id = "registerForm_lastName" class = "registerForm_field clientForm_lastName authForm_field fullSizeForm_field form_field">
+                        <label for = "registerForm_input_lastName">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Nazwisko
+                        </label>
+                        <input name = "lastName" id = "registerForm_input_lastName" autocomplete = "family-name" required />
+                    </section>
+
+                    <section id = "registerForm_address" class = "clientForm_address">
+                        <section id = "registerForm_addressPrecise" class = "clientForm_addressPrecise">
+                            <section id = "registerForm_street" class = "clientForm_street registerForm_field authForm_field fullSizeForm_field form_field">
+                                <label for = "registerForm_input_street">
+                                    <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Ulica
+                                </label>
+                                <input name = "street" id = "registerForm_input_street" autocomplete = "address-line1" required />
+                            </section>
+
+                            <section id = "registerForm_houseNo" class = "clientForm_houseNo registerForm_field authForm_field fullSizeForm_field form_field">
+                                <label for = "registerForm_input_houseNo">
+                                    <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Nr domu
+                                </label>
+                                <input name = "houseNo" id = "registerForm_input_houseNo" autocomplete = "address-line2" required />
+                            </section>
+
+                            <section id = "registerForm_apartmentNo" class = "clientForm_apartmentNo registerForm_field authForm_field fullSizeForm_field form_field">
+                                <label for = "registerForm_input_apartmentNo">
+                                    <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Nr lokalu
+                                </label>
+                                <input name = "apartmentNo" id = "registerForm_input_apartmentNo" autocomplete = "address-line3" required />
+                            </section>
+                        </section>
+
+                        <section id = "registerForm_addressGeneral" class = "clientForm_addressGeneral">
+                            <section id = "registerForm_postalCode" class = "registerForm_field clientForm_postalCode authForm_field fullSizeForm_field form_field">
+                                <label for = "registerForm_input_postalCode">
+                                    <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Kod pocztowy
+                                </label>
+                                <input name = "postalCode" id = "registerForm_input_postalCode" autocomplete = "postal-code" required />
+                            </section>
+
+                            <section id = "registerForm_city" class = "registerForm_field clientForm_City authForm_field fullSizeForm_field form_field">
+                                <label for = "registerForm_input_city">
+                                    <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Miejscowość
+                                </label>
+                                <input name = "city" id = "registerForm_input_city" autocomplete = "address-level2" required />
+                            </section>
+                        </section>
+                    </section>
+
+                    <section id = "registerForm_phone" class = "registerForm_field clientForm_Phone authForm_field fullSizeForm_field form_field">
+                        <label for = "registerForm_input_phone">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Telefon
+                        </label>
+                        <input name = "phone" type = "tel" id = "registerForm_input_phone" autocomplete = "tel-national" required />
+                    </section>
+
+                </main>
+                <input type = "submit" value = "Zarejestruj" id = "registerForm_submit" class = "authForm_submit fullSizeForm_submit" />
+                <p id = "registerForm_error" class = "authForm_error fullSizeForm_error"></p>
+            </form>
+        </main>
+    </body>
+</html>

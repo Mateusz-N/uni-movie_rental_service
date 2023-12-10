@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html" charset= "utf-8" />
+        <title>Wypożyczalnia</title>
+        <link rel = "stylesheet" href = "/css/style.css">
+        <script src = "/js/script.js"></script>
+    </head>
+    <body>
+        <nav id = "navbar">
+            <ul id = "navbarItems">
+                <li class = "navbarItem">
+                    <h3 id = "navbar_homeBtn"><a href = "/">Wypożyczalnia<br/>filmów</a></h3>
+                </li>
+            </ul>
+        </nav>
+        <main id = "pageContent">
+            <form method = "post" action = "/api/login" id = "loginForm" class = "authForm fullSizeForm">
+                <h2 id = "loginForm_heading" class = "authForm_heading fullSizeForm_heading">Logowanie</h2>
+                <main id = "loginForm_main" class = "authForm_main fullSizeForm_main form_main">
+
+                    <section id = "loginForm_userName" class = "loginForm_field authForm_field fullSizeForm_field form_field">
+                        <label for = "loginForm_input_userName">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Nazwa użytkownika
+                        </label>
+                        <input name = "userName" id = "loginForm_input_userName" autocomplete = "username" required />
+                    </section>
+
+                    <section id = "loginForm_userName" class = "loginForm_field authForm_field fullSizeForm_field form_field">
+                        <label for = "loginForm_input_password">
+                            <span class = "authForm_requiredSign fullSizeForm_requiredSign">*</span>Hasło
+                        </label>
+                        <input name = "password" type = "password" id = "loginForm_input_password" required />
+                    </section>
+
+                </main>
+                <input type = "submit" value = "Zaloguj" id = "loginForm_submit" class = "authForm_submit fullSizeForm_submit" />
+                <p id = "loginForm_error" class = "authForm_error fullSizeForm_error"></p>
+            </form>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html" charset= "utf-8" />
+        <title>Wypożyczalnia</title>
+        <link rel = "stylesheet" href = "/css/style.css">
+        <script src = "/js/script.js"></script>
+        <script src = "/js/docList.js"></script>
+    </head>
+    <body>
+        <nav id = "navbar">
+            <ul id = "navbarItems">
+                <li class = "navbarItem">
+                    <h3 id = "navbar_homeBtn"><a href = "/">Wypożyczalnia<br/>filmów</a></h3>
+                </li>
+            </ul>
+        </nav>
+        <main id = "pageContent">
+            <main id = "pageContent_main">
+                <h1 id = "rentalList_heading" class = "pageContent_main_heading">Wypożyczenia</h1>
+                <form id = "rentalList_filterForm" class = "table_filterForm">
+                    <h3 id = "rentalList_filterForm_heading">Filtry</h3>
+                    <main id = "rentalList_filterForm_main" class = "table_filterForm_main">
+                        <fieldset id = "rentalList_filterForm_fieldset_client" class = "docList_filterForm_fieldset">
+                            <legend>Klient</legend>
+
+                            <section id = "rentalList_filterForm_clientFirstName" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_clientFirstName">Imię</label>
+                                <input name = "clientFirstName" id = "rentalList_filterForm_input_clientFirstName" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_clientLastName" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_clientLastName">Nazwisko</label>
+                                <input name = "clientLastName" id = "rentalList_filterForm_input_clientLastName" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_clientAddress" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_clientAddress">Adres</label>
+                                <input placeholder = "Prosta 1/2 40-001 Katowice" name = "clientAddress" id = "rentalList_filterForm_input_clientAddress" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_clientPhone" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_clientPhone">Telefon</label>
+                                <input name = "clientPhone" id = "rentalList_filterForm_input_clientPhone" />
+                            </section>
+
+                        </fieldset>
+                        <fieldset id = "rentalList_filterForm_fieldset_movie" class = "docList_filterForm_fieldset">
+                            <legend>Film</legend>
+
+                            <section id = "rentalList_filterForm_movieId" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_movieId">ID filmu</label>
+                                <input name = "movieId" id = "rentalList_filterForm_input_movieId" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_movieTitle" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_movieTitle">Tytuł filmu</label>
+                                <input name = "movieTitle" id = "rentalList_filterForm_input_movieTitle" />
+                            </section>
+
+                        </fieldset>
+                        <fieldset id = "rentalList_filterForm_fieldset_rental" class = "docList_filterForm_fieldset">
+                            <legend>Wypożyczenie</legend>
+
+                            <section id = "rentalList_filterForm_rentDate" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_rentDate">Data wypożyczenia</label>
+                                <input type = "date" name = "rentDate" id = "rentalList_filterForm_input_rentDate" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_plannedReturnDate" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_plannedReturnDate">Data planowanego zwrotu</label>
+                                <input type = "date" name = "plannedReturnDate" id = "rentalList_filterForm_input_plannedReturnDate" />
+                            </section>
+
+                            <section id = "rentalList_filterForm_actualReturnDate" class = "rentalList_filterForm_field form_field">
+                                <label for = "rentalList_filterForm_input_actualReturnDate">Data faktycznego zwrotu</label>
+                                <input type = "date" name = "actualReturnDate" id = "rentalList_filterForm_input_actualReturnDate" />
+                            </section>
+
+                        </fieldset>
+                    </main>
+                </form>
+                <table id = "rentalList">
+                    <thead id = "rentalList_head">
+                        <tr id = "rentalList_headRow_1">
+                            <th id = "rentalList_header_no" class = "docList_atomicHeader docList_header_no" rowspan = "2">Lp.</th>
+                            <th id = "rentalList_header_client" colspan = "4">Klient</th>
+                            <th id = "rentalList_header_movie" colspan = "2">Film</th>
+                            <th id = "rentalList_header_rentDate" class = "docList_atomicHeader" rowspan = "2">Data wypożyczenia<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_plannedReturnDate" class = "docList_atomicHeader" rowspan = "2">Data planowanego zwrotu<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_actualReturnDate" class = "docList_atomicHeader" rowspan = "2">Data faktycznego zwrotu<span class = "table_heading_sortSign">&uarr;</span></th>
+                        </tr>
+                        <tr id = "rentalList_headRow_2">
+                            <th id = "rentalList_header_client_firstName" class = "docList_atomicHeader">Imię<span class = "table_heading_sortSign table_heading_sortSign_active">&uarr;</span></th>
+                            <th id = "rentalList_header_client_lastName" class = "docList_atomicHeader">Nazwisko<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_client_address" class = "docList_atomicHeader">Adres<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_client_phone" class = "docList_atomicHeader">Telefon<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_movie_id" class = "docList_atomicHeader">ID<span class = "table_heading_sortSign">&uarr;</span></th>
+                            <th id = "rentalList_header_movie_title" class = "docList_atomicHeader">Tytuł<span class = "table_heading_sortSign">&uarr;</span></th>
+                    </thead>
+                    <tbody id = "rentalList_body">
+
+                    </tbody>
+                </table>
+            </main>
+        </main>
+    </body>
+</html>
