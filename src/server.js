@@ -7,14 +7,14 @@ const dbController = require("./dbQueries");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const PORT = process.env.PORT || 8000;
-const SSL_KEY_PATH = process.env.SSL_KEY_PATH || "../cert/key.pem";
-const SSL_CERT_PATH = process.env.SSL_CERT_PATH || "../cert/cert.pem";
+const SSL_KEY = process.env.SSL_KEY || fs.readFileSync("../cert/key.pem", 'utf8');
+const SSL_CERT = process.env.SSL_CERT || fs.readFileSync("../cert/cert.pem", 'utf8');
 
 const startWebServer = async(port, mongoClient) => {
 
     const httpsOptions = {
-        key: fs.readFileSync(SSL_KEY_PATH),
-        cert: fs.readFileSync(SSL_CERT_PATH)
+        key: SSL_KEY,
+        cert: SSL_CERT
     }
     const visitor = {
         active: false,
