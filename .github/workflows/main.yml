@@ -1,4 +1,4 @@
-name: Node.js Docker Build & Push
+name: Build and push Docker image to DockerHub, then deploy to AWS EC2
 
 on:
   push:
@@ -30,8 +30,21 @@ jobs:
       - name: Push Docker Image to DockerHub
         run: docker push matnos/uni-movie_rental_service:latest
 
+      - name: Set up AWS CLI
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: your-aws-region
+          
+      - name: Copy Deployment Script to EC2
+        run: echo "${{ secrets.PRIVATE_KEY_CONTENT }}" > private-key.pem && scp -i private-key.pem -o StrictHostKeyChecking=no -r ./* ec2-user@your-ec2-instance-ip:/usr/src/app
+      
+      - name: SSH into EC2 and Deploy
+        run: ssh -i private-key.pem -o StrictHostKeyChecking=no ec2-user@your-ec2-instance-ip "cd /usr/src/app && ./deploy.sh"
+
     env:
-        MONGO_DB_URL: ${{ secrets.MONGODB_URI }}
-        PORT: ${{ secrets.PORT }}
-        SSL_CERT: ${{ secrets.SSL_CERT }}
-        SSL_KEY: ${{ secrets.SSL_KEY }}
+      MONGO_DB_URL: ${{ secrets.MONGODB_URI }}
+      PORT: ${{ secrets.PORT }}
+      SSL_CERT: ${{ secrets.SSL_CERT }}
+      SSL_KEY: ${{ secrets.SSL_KEY }}
