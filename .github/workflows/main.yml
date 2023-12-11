@@ -29,3 +29,9 @@ jobs:
 
       - name: Push Docker Image to DockerHub
         run: docker push matnos/uni-movie_rental_service:latest
+
+    env:
+        MONGO_DB_URL: ${{ secrets.MONGODB_URI }}
+        PORT: ${{ secrets.PORT }}
+        SSL_CERT: ${{ secrets.SSL_CERT }}
+        SSL_KEY: ${{ secrets.SSL_KEY }}
