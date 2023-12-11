@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 
-COPY src/server.js ./src/
+COPY src ./src
 COPY public ./public
 
 ENV PORT=8000
