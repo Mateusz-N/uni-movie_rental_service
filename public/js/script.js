@@ -77,7 +77,7 @@ window.onload = async() => {
 }
 
 const handleSession = async() => {
-    await fetch("http://localhost:8000/api/session")
+    await fetch("https://localhost:8000/api/session")
         .then((response) => {
             if(response.ok) {
                 return response.json();
@@ -250,7 +250,7 @@ const sendLogoutRequest = () => {
 
 const sendRequest = (requestBody, route, method) => {
     console.log(requestBody, route, method)
-    return fetch("http://localhost:8000" + route, {
+    return fetch("https://localhost:8000" + route, {
         method: method,
         headers: {
           'Accept': 'application/json',
@@ -296,7 +296,7 @@ const fillModifyClientForm = async(form, clientID) => {
 }
 
 const fetchDocByID = async(id, collectionName) => {
-    return fetch("http://localhost:8000/api/" + collectionName + "/" + id)
+    return fetch("https://localhost:8000/api/" + collectionName + "/" + id)
         .then((response) => {
             if(response.ok) {
                 return response.json()

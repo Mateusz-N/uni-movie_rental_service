@@ -107,7 +107,7 @@ const handleSortDocList = (headRow, targetHeader, collectionName) => {
 }
 
 const fetchCollection = async(searchFilters, sortCriteria, collectionName) => {
-    let endpoint = new URL("http://localhost:8000/api/" + collectionName + "s");
+    let endpoint = new URL("https://localhost:8000/api/" + collectionName + "s");
     if(searchFilters) {
         Object.keys(searchFilters).forEach(filterName => {
             if(searchFilters[filterName]) {
