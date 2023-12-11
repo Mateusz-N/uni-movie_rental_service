@@ -3,7 +3,7 @@ const https = require("https");
 const url = require("url");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
-const dbController = require("./dbQueries");
+const dbController = require("./dbQueries.js");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const PORT = process.env.PORT || 8000;
