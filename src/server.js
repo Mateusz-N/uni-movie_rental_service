@@ -592,7 +592,15 @@ const main = async() => {
     const client = new MongoClient(MONGODB_URI);
     try {
         await client.connect();
+        console.log(MONGODB_URI)
+        console.log(SSL_KEY)
+        console.log(SSL_CERT)
+        console.log(PORT)
         await startWebServer(PORT, client);
+        console.log(MONGODB_URI)
+        console.log(SSL_KEY)
+        console.log(SSL_CERT)
+        console.log(PORT)
     } catch(error) {
         console.error(error);
     }
