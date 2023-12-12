@@ -47,6 +47,9 @@ jobs:
 
       - name: Push database Docker image to DockerHub
         run: docker push matnos/uni-movie_rental_database:latest
+
+      - name: Log Docker
+        run: docker logs
           
       # - name: Build database Docker Image
       #   run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest .
