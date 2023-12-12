@@ -7,8 +7,8 @@ services:
     environment:
       MONGODB_URI: "mongodb://video-rental-database:27017"
       PORT: 8000
-      SSL_CERT: ${{ secrets.SSL_CERT }}
-      SSL_KEY: ${{ secrets.SSL_KEY }}
+      SSL_CERT: $${{ secrets.SSL_CERT }}
+      SSL_KEY: $${{ secrets.SSL_KEY }}
     depends_on:
       - video-rental-database
 
