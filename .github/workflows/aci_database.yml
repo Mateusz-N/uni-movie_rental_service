@@ -5,7 +5,11 @@ properties:
   containers:
   - name: video-rental-database
     properties:
-      image: wypozyczalniaWideo.azurecr.io/video-rental-database:latest
+      image: wypozyczalniawideo.azurecr.io/video-rental-database:latest
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGB: 0.5
       ports:
       - port: 27017
   osType: Linux
