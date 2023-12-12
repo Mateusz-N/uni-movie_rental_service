@@ -5,7 +5,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      MONGO_DB_URL: "mongodb://video-rental-database:27017"
+      MONGODB_URI: "mongodb://video-rental-database:27017"
       PORT: 8000
       SSL_CERT: a
       SSL_KEY: b
