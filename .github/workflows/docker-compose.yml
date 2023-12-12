@@ -1,0 +1,18 @@
+version: '3'
+services:
+  video-rental-service:
+    image: matnos/uni-movie_rental_service:latest
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_DB_URL: "mongodb://video-rental-database:27017"
+      PORT: 8000
+      SSL_CERT: a
+      SSL_KEY: b
+    depends_on:
+      - video-rental-database
+
+  video-rental-database:
+    image: matnos/uni-movie_rental_database:latest
+    ports:
+      - "27017:27017"
