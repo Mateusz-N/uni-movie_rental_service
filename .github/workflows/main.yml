@@ -35,7 +35,7 @@ jobs:
           docker-compose -f .github/workflows/docker-compose.yml up
 
     env:
-      MONGO_DB_URL: ${{ secrets.MONGODB_URI }}
+      MONGODB_URIL: ${{ secrets.MONGODB_URI }}
       PORT: ${{ secrets.PORT }}
       SSL_CERT: ${{ secrets.SSL_CERT }}
       SSL_KEY: ${{ secrets.SSL_KEY }}
