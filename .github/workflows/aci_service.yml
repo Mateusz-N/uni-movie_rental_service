@@ -8,8 +8,8 @@ properties:
       image: matnos/uni-movie_rental_service
       resources:
         requests:
-          cpu: 1
-          memoryInGB: 2
+          cpu: 0.5
+          memoryInGB: 0.5
       ports:
       - port: 8000
   osType: Linux
