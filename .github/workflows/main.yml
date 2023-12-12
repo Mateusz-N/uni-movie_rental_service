@@ -40,6 +40,12 @@ jobs:
       - name: Push app Docker Image
         run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
 
+      - name: Deploy database to Azure Container Instances
+        run: az container create --resource-group wypozyczalnia-wideo --file aci_database.yml
+
+      - name: Deploy app to Azure Container Instances
+        run: az container create --resource-group wypozyczalnia-wideo --file aci_service.yml
+
       # - name: Build app Docker Image
       #   run: docker build -t matnos/uni-movie_rental_service:latest .
 
@@ -73,3 +79,4 @@ jobs:
       PORT: ${{ secrets.PORT }}
       SSL_CERT: ${{ secrets.SSL_CERT }}
       SSL_KEY: ${{ secrets.SSL_KEY }}
+      REGISTRY_NAME: ${{ secrets.REGISTRY_NAME }}
