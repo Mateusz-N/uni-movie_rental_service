@@ -30,9 +30,6 @@ jobs:
           docker push matnos/uni-movie_rental_service:latest
           docker push matnos/uni-movie_rental_database:latest
 
-      - name: Log Docker
-        run: docker logs
-
       - name: Deploy to Azure Container Instances
         run: |
           docker-compose -f docker-compose.yml up
