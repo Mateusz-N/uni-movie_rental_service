@@ -5,7 +5,7 @@ properties:
   containers:
   - name: video-rental-service
     properties:
-      image: wypozyczalniaWideo.azurecr.io/video-rental-service:latest
+      image: wypozyczalniawideo.azurecr.io/video-rental-service:latest
       resources:
         requests:
           cpu: 0.5
