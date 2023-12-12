@@ -5,7 +5,7 @@ properties:
   containers:
   - name: video-rental-database
     properties:
-      image: ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest
+      image: wypozyczalniaWideo.azurecr.io/video-rental-database:latest
       ports:
       - port: 27017
   osType: Linux
