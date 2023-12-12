@@ -45,6 +45,9 @@ jobs:
       - name: Push app Docker Image
         run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
 
+      - name: Debug Info - List Docker Images After App Push
+        run: docker images
+
       - name: Deploy database to Azure Container Instances
         run: az container create --resource-group wypozyczalnia-wideo --file .github/workflows/aci_database.yml
 
