@@ -21,33 +21,52 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build app Docker Image
-        run: docker build -t matnos/uni-movie_rental_service:latest .
-
-      - name: Build database Docker image
-        run: docker build -t matnos/uni-movie_rental_database:latest -f Dockerfile-db .
-
-      - name: Log in to DockerHub
-        run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Push app Docker Image to DockerHub
-        run: docker push matnos/uni-movie_rental_service:latest
-
-      - name: Push database Docker image to DockerHub
-        run: docker push matnos/uni-movie_rental_database:latest
-
-      - name: Set up AWS CLI
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: Login to Azure Container Registry
+        uses: azure/docker-login@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: your-aws-region
+          login-server: ${{ secrets.REGISTRY_NAME }}.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
           
-      - name: Copy Deployment Script to EC2
-        run: echo "${{ secrets.PRIVATE_KEY_CONTENT }}" > private-key.pem && scp -i private-key.pem -o StrictHostKeyChecking=no -r ./* ec2-user@your-ec2-instance-ip:/usr/src/app
+      - name: Build database Docker Image
+        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest .
+
+      - name: Push database Docker Image
+        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest
+          
+      - name: Build app Docker Image
+        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest .
+
+      - name: Push app Docker Image
+        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
+
+      # - name: Build app Docker Image
+      #   run: docker build -t matnos/uni-movie_rental_service:latest .
+
+      # - name: Build database Docker image
+      #   run: docker build -t matnos/uni-movie_rental_database:latest -f Dockerfile-db .
+
+      # - name: Log in to DockerHub
+      #   run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # - name: Push app Docker Image to DockerHub
+      #   run: docker push matnos/uni-movie_rental_service:latest
+
+      # - name: Push database Docker image to DockerHub
+      #   run: docker push matnos/uni-movie_rental_database:latest
+
+      # - name: Set up AWS CLI
+      #   uses: aws-actions/configure-aws-credentials@v2
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: your-aws-region
+          
+      # - name: Copy Deployment Script to EC2
+      #   run: echo "${{ secrets.PRIVATE_KEY_CONTENT }}" > private-key.pem && scp -i private-key.pem -o StrictHostKeyChecking=no -r ./* ec2-user@your-ec2-instance-ip:/usr/src/app
       
-      - name: SSH into EC2 and Deploy
-        run: ssh -i private-key.pem -o StrictHostKeyChecking=no ec2-user@your-ec2-instance-ip "cd /usr/src/app && ./deploy.sh"
+      # - name: SSH into EC2 and Deploy
+      #   run: ssh -i private-key.pem -o StrictHostKeyChecking=no ec2-user@your-ec2-instance-ip "cd /usr/src/app && ./deploy.sh"
 
     env:
       MONGO_DB_URL: ${{ secrets.MONGODB_URI }}
