@@ -7,7 +7,7 @@ properties:
     properties:
       image: ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest
       ports:
-      - port: 80
+      - port: 27017
   osType: Linux
   restartPolicy: Always
   ipAddress:
