@@ -5,7 +5,11 @@ properties:
   containers:
   - name: video-rental-service
     properties:
-      image: ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
+      image: wypozyczalniawideo.azurecr.io/video-rental-service:latest
+      resources:
+        requests:
+          cpu: 0.5
+          memoryInGB: 0.5
       ports:
       - port: 8000
   osType: Linux
