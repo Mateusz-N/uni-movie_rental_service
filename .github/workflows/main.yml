@@ -46,10 +46,10 @@ jobs:
         run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
 
       - name: Deploy database to Azure Container Instances
-        run: az container create --resource-group wypozyczalnia-wideo --file aci_database.yml
+        run: az container create --resource-group wypozyczalnia-wideo --file ./aci_database.yml
 
       - name: Deploy app to Azure Container Instances
-        run: az container create --resource-group wypozyczalnia-wideo --file aci_service.yml
+        run: az container create --resource-group wypozyczalnia-wideo --file ./aci_service.yml
 
       # - name: Build app Docker Image
       #   run: docker build -t matnos/uni-movie_rental_service:latest .
