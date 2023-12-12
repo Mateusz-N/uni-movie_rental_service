@@ -1,0 +1,17 @@
+apiVersion: '2018-10-01'
+location: eastus
+name: aci_video-rental-service
+properties:
+  containers:
+  - name: video-rental-service
+    properties:
+      image: ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
+      ports:
+      - port: 80
+  osType: Linux
+  restartPolicy: Always
+  ipAddress:
+    type: Public
+    ports:
+    - protocol: tcp
+      port: 8000
