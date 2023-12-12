@@ -5,7 +5,7 @@ properties:
   containers:
   - name: video-rental-database
     properties:
-      image: wypozyczalniawideo.azurecr.io/video-rental-database:latest
+      image: matnos/uni-movie_rental_database
       resources:
         requests:
           cpu: 0.5
