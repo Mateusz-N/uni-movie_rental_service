@@ -34,16 +34,16 @@ jobs:
           password: ${{ secrets.REGISTRY_PASSWORD }}
           
       - name: Build database Docker Image
-        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/videor-rental-database:latest .
+        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest .
 
       - name: Push database Docker Image
-        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/videor-rental-database:latest
+        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-database:latest
           
       - name: Build app Docker Image
-        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/videor-rental-service:latest .
+        run: docker build -t ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest .
 
       - name: Push app Docker Image
-        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/videor-rental-service:latest
+        run: docker push ${{ secrets.REGISTRY_NAME }}.azurecr.io/video-rental-service:latest
 
       - name: Deploy database to Azure Container Instances
         run: az container create --resource-group wypozyczalnia-wideo --file .github/workflows/aci_database.yml
