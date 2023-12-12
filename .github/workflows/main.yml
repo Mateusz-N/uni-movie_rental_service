@@ -48,6 +48,18 @@ jobs:
       - name: Debug Info - List Docker Images After App Push
         run: docker images
 
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Login to Azure Container Registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: wypozyczalniaWideo.azurecr.io
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
       - name: Deploy database to Azure Container Instances
         run: az container create --resource-group wypozyczalnia-wideo --file .github/workflows/aci_database.yml
 
