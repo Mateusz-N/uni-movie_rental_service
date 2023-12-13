@@ -15,7 +15,7 @@ properties:
       ports:
       - port: 8000
   osType: Linux
-  restartPolicy: OnFailure
+  restartPolicy: Never
   ipAddress:
     type: Public
     ports:
