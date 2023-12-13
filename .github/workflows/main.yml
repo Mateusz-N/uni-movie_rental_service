@@ -1,4 +1,4 @@
-name: Build and push Docker image to ACR, then deploy to ACI
+name: Build and push Docker image to DockerHub, then deploy to ACI
 
 on:
   push:
