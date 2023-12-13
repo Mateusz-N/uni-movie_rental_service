@@ -1,9 +1,9 @@
 apiVersion: '2018-10-01'
 location: eastus
-name: aci_movie-rental-database
+name: aci_video-rental-database
 properties:
   containers:
-  - name: movie-rental-database
+  - name: video-rental-database
     properties:
       image: matnos/uni-movie_rental_database
       resources:
