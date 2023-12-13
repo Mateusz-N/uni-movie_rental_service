@@ -42,13 +42,24 @@ jobs:
           TENANT_ID=$(jq -r .tenantId azure-credentials.json)
           az login --service-principal --username $CLIENT_ID --password $CLIENT_SECRET --tenant $TENANT_ID
 
-      - name: Deploy to Azure Container Instances
+      - name: Deploy database to Azure Container Instances
         run: |
           az container create \
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --name aci_video-rental-service \
-          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest \
-          --dns-name-label video-rental-service \
+          --name movie-rental-database \
+          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/movie-rental-database:latest \
+          --dns-name-label movie-rental-database \
+          --ports 27017 \
+          --registry-username ${{ secrets.REGISTRY_USERNAME }} \
+          --registry-password ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Deploy app to Azure Container Instances
+        run: |
+          az container create \
+          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+          --name movie-rental-service \
+          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/movie-rental-service:latest \
+          --dns-name-label movie-rental-service \
           --ports 8000 \
           --registry-username ${{ secrets.REGISTRY_USERNAME }} \
           --registry-password ${{ secrets.REGISTRY_PASSWORD }}
