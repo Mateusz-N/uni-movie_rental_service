@@ -30,9 +30,9 @@ jobs:
           docker push matnos/uni-movie_rental_service:latest
           docker push matnos/uni-movie_rental_database:latest
 
-      # - name: Deploy to Azure Container Instances
-      #   run: |
-      #     docker-compose -f .github/workflows/docker-compose.yml up
+      - name: Deploy to Azure Container Instances
+        run: |
+          docker-compose -f .github/workflows/docker-compose.yml up
 
       - name: Login to Azure
         run: |
