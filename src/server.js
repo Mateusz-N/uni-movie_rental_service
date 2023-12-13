@@ -8,13 +8,13 @@ const dbController = require("./dbQueries");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const PORT = process.env.PORT || 8000;
 const SSL_KEY = process.env.SSL_KEY;
-if(!SSL_KEY) {
-    SSL_KEY = fs.readFileSync("../cert/key.pem", 'utf8');
-}
+// if(!SSL_KEY) {
+//     SSL_KEY = fs.readFileSync("../cert/key.pem", 'utf8');
+// }
 const SSL_CERT = process.env.SSL_CERT;
-if(!SSL_CERT) {
-    SSL_CERT = fs.readFileSync("../cert/cert.pem", 'utf8');
-}
+// if(!SSL_CERT) {
+//     SSL_CERT = fs.readFileSync("../cert/cert.pem", 'utf8');
+// }
 
 const startWebServer = async(port, mongoClient) => {
 
