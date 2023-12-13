@@ -1,5 +1,6 @@
 const { MongoClient, ObjectId } = require("mongodb");
-const https = require("https");
+// const https = require("https");
+const https = require("http");
 const url = require("url");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
@@ -7,15 +8,15 @@ const dbController = require("./dbQueries");
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
 const PORT = process.env.PORT || 8000;
-const SSL_KEY = process.env.SSL_KEY || fs.readFileSync("../cert/key.pem", 'utf8');
-const SSL_CERT = process.env.SSL_CERT || fs.readFileSync("../cert/cert.pem", 'utf8');
+// const SSL_KEY = process.env.SSL_KEY || fs.readFileSync("../cert/key.pem", 'utf8');
+// const SSL_CERT = process.env.SSL_CERT || fs.readFileSync("../cert/cert.pem", 'utf8');
 
 const startWebServer = async(port, mongoClient) => {
 
-    const httpsOptions = {
-        key: SSL_KEY,
-        cert: SSL_CERT
-    }
+    // const httpsOptions = {
+    //     key: SSL_KEY,
+    //     cert: SSL_CERT
+    // }
     const visitor = {
         active: false,
         user: {
@@ -37,7 +38,7 @@ const startWebServer = async(port, mongoClient) => {
     }
     let session = visitor;
 
-    https.createServer(httpsOptions, async(req, res) => {
+    http.createServer(/*httpsOptions, */async(req, res) => {
         const sendFile = (res, file, contentType) => {
             fs.readFile(file, (error, data) => {
                 if(error) {
