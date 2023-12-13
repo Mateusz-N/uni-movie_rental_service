@@ -1,9 +1,9 @@
 apiVersion: '2018-10-01'
 location: eastus
-name: aci_movie-rental-service
+name: aci_video-rental-service
 properties:
   containers:
-  - name: movie-rental-service
+  - name: video-rental-service
     properties:
       image: matnos/uni-movie_rental_service
       requests:
