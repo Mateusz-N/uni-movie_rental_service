@@ -45,15 +45,11 @@ jobs:
       - name: Deploy to Azure Container Instances
         run: |
           az container create \
-          --resource-group ${{ secrets.RESOURCE_GROUP }} \
+          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
           --name wypozyczalniaaci \
           --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest \
           --dns-name-label wypozyczalniaaci \
-          --ports 80 \
-          --environment-variables \
-          MONGO_INITDB_ROOT_USERNAME=admin \
-          MONGO_INITDB_ROOT_PASSWORD=Marcelek123 \
-          MONGO_INITDB_DATABASE=wypozyczalnia \
+          --ports 8000 \
           --registry-username ${{ secrets.REGISTRY_USERNAME }} \
           --registry-password ${{ secrets.REGISTRY_PASSWORD }}
 
