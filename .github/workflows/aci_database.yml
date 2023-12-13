@@ -1,9 +1,9 @@
 apiVersion: '2018-10-01'
 location: eastus
-name: aci_video-rental-database
+name: aci_movie-rental-database
 properties:
   containers:
-  - name: video-rental-database
+  - name: movie-rental-database
     properties:
       image: matnos/uni-movie_rental_database
       resources:
@@ -13,7 +13,7 @@ properties:
       ports:
       - port: 27017
   osType: Linux
-  restartPolicy: Always
+  restartPolicy: OnFailure
   ipAddress:
     type: Public
     ports:
