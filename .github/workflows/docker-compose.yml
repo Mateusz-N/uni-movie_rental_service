@@ -1,18 +1,18 @@
 version: '3'
 services:
-  video-rental-service:
+  movie-rental-service:
     image: matnos/uni-movie_rental_service:latest
     ports:
       - "8000:8000"
     environment:
-      MONGODB_URI: "mongodb://video-rental-database:27017"
+      MONGODB_URI: "mongodb://movie-rental-database:27017"
       PORT: 8000
       SSL_CERT: ${SSL_CERT}
       SSL_KEY: ${SSL_KEY}
     depends_on:
-      - video-rental-database
+      - movie-rental-database
 
-  video-rental-database:
+  movie-rental-database:
     image: matnos/uni-movie_rental_database:latest
     ports:
       - "27017:27017"
