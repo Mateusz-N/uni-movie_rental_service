@@ -12,4 +12,4 @@ ENV PORT=8000
 EXPOSE $PORT
 
 CMD ["node", "src/server.js"]
-RUN echo "Current directory contents:" && ls -a
+RUN echo "Current directory contents:" && tree -f
