@@ -6,10 +6,12 @@ properties:
   - name: video-rental-service
     properties:
       image: matnos/uni-movie_rental_service
-      resources:
-        requests:
-          cpu: 0.5
-          memoryInGB: 0.5
+      requests:
+        memory: "100M"
+        cpu: "250m"
+      limits:
+        memory: "200M"
+        cpu: "5000m"
       ports:
       - port: 8000
   osType: Linux
