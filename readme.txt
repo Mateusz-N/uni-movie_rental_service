@@ -1,4 +1,4 @@
-Wdrożenie obejmuje proces budowy obrazów Docker, ich publikację na DockerHub, a następnie wdrożenie na Azure Container Instances za pomocą GitHub Actions i Docker Compose. Wdrażany projekt obejmuje dwie usługi - serwerową aplikację Node.js i bazę danych MongoDB, które są uruchamiane i konfigurowane zgodnie z zależnościami między nimi. Wykorzystano zmienne środowiskowe oraz sekrety repozytorium GitHub do przekazania wymaganych elementów konfiguracji.
+Wdrożenie obejmuje proces budowy obrazów Docker, ich publikację na DockerHub, a następnie wdrożenie na Azure Container Instances za pomocą GitHub Actions i Docker Compose. Wdrażany projekt obejmuje dwie usługi - serwerową aplikację Node.js i bazę danych MongoDB, które są uruchamiane i konfigurowane zgodnie z zależnościami między nimi. Wykorzystano zmienne środowiskowe oraz sekrety repozytorium GitHub do przekazania wymaganych elementów konfiguracji. 
  
 Poniżej znajduje się opis każdego z użytych plików związanych z wdrożeniem
 
