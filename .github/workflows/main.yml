@@ -46,9 +46,9 @@ jobs:
         run: |
           az container create \
           --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --name wypozyczalniaaci \
+          --name aci_video-rental-service \
           --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest \
-          --dns-name-label wypozyczalniaaci \
+          --dns-name-label aci_video-rental-service \
           --ports 8000 \
           --registry-username ${{ secrets.REGISTRY_USERNAME }} \
           --registry-password ${{ secrets.REGISTRY_PASSWORD }}
