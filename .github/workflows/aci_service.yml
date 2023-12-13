@@ -1,6 +1,6 @@
 apiVersion: '2018-10-01'
 location: eastus
-name: aci-movie-rental-service
+name: aci_movie-rental-service
 properties:
   containers:
   - name: movie-rental-service
