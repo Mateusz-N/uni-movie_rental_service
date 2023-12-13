@@ -585,7 +585,7 @@ const startWebServer = async(port, mongoClient) => {
             }
         }
     }).listen(port, () => {
-        console.log(httpsOptions)
+        // console.log(httpsOptions)
         console.log("Serwer nasłuchuje na porcie " + port)
     });
 }
