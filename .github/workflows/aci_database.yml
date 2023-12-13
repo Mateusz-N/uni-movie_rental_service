@@ -13,7 +13,7 @@ properties:
       ports:
       - port: 27017
   osType: Linux
-  restartPolicy: OnFailure
+  restartPolicy: Never
   ipAddress:
     type: Public
     ports:
