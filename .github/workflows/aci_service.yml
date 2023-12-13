@@ -1,9 +1,9 @@
 apiVersion: '2018-10-01'
 location: eastus
-name: aci_video-rental-service
+name: aci-movie-rental-service
 properties:
   containers:
-  - name: video-rental-service
+  - name: movie-rental-service
     properties:
       image: matnos/uni-movie_rental_service
       requests:
@@ -15,7 +15,7 @@ properties:
       ports:
       - port: 8000
   osType: Linux
-  restartPolicy: Always
+  restartPolicy: OnFailure
   ipAddress:
     type: Public
     ports:
