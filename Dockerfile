@@ -12,4 +12,4 @@ ENV PORT=8000
 EXPOSE $PORT
 
 CMD ["node", "src/server.js"]
-RUN ls -R
+RUN ls -R /src/
