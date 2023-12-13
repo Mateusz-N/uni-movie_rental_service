@@ -34,6 +34,29 @@ jobs:
         run: |
           docker-compose -f .github/workflows/docker-compose.yml up
 
+      - name: Login to Azure
+        run: |
+          echo '${{ secrets.AZURE_CREDENTIALS }}' > azure-credentials.json
+          CLIENT_ID=$(jq -r .clientId azure-credentials.json)
+          CLIENT_SECRET=$(jq -r .clientSecret azure-credentials.json)
+          TENANT_ID=$(jq -r .tenantId azure-credentials.json)
+          az login --service-principal --username $CLIENT_ID --password $CLIENT_SECRET --tenant $TENANT_ID
+
+      - name: Deploy to Azure Container Instances
+        run: |
+          az container create \
+          --resource-group ${{ secrets.RESOURCE_GROUP }} \
+          --name wypozyczalniaaci \
+          --image ${{ secrets.REGISTRY_NAME }}.azurecr.io/wypozyczalnia:latest \
+          --dns-name-label wypozyczalniaaci \
+          --ports 80 \
+          --environment-variables \
+          MONGO_INITDB_ROOT_USERNAME=admin \
+          MONGO_INITDB_ROOT_PASSWORD=Marcelek123 \
+          MONGO_INITDB_DATABASE=wypozyczalnia \
+          --registry-username ${{ secrets.REGISTRY_USERNAME }} \
+          --registry-password ${{ secrets.REGISTRY_PASSWORD }}
+
     env:
       MONGODB_URI: ${{ secrets.MONGODB_URI }}
       PORT: ${{ secrets.PORT }}
