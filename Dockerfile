@@ -1,14 +1,12 @@
-FROM node:latest
+FROM node:16
 
 WORKDIR /usr/src/app
 
-COPY src ./src
-COPY public ./public
-
-RUN file="$(ls -R)" && echo $file
-
 COPY package*.json ./
 RUN npm install
+
+COPY src ./src
+COPY public ./public
 
 ENV PORT=8000
 EXPOSE $PORT
